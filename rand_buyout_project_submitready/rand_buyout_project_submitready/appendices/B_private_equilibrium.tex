@@ -1,0 +1,246 @@
+\section{Appendix to Section \ref{sec:private}}\label{app:privateproofs}
+
+\subsection{Effort choice}\label{app:effort}
+
+For a given project type \(j\), the entrepreneur solves
+\begin{equation}
+    \max_{x \in [0,1]}
+    \left\{
+        xR_j(q)-\frac{x^2}{2}
+    \right\}.
+\end{equation}
+The derivative is
+\begin{equation}
+    \frac{\partial}{\partial x}
+    \left(
+        xR_j(q)-\frac{x^2}{2}
+    \right)
+    =
+    R_j(q)-x.
+\end{equation}
+Hence the unconstrained optimum is \(x=R_j(q)\).
+Imposing the constraint \(x \in [0,1]\) yields
+\begin{equation}\label{eq:xgeneral}
+    x_j^*(q)=\min\{R_j(q),1\},
+\end{equation}
+since \(R_j(q)>0\).
+Under Assumption \ref{ass:interior}, \(R_j(q)\in(0,1)\), so \eqref{eq:xgeneral} reduces to \eqref{eq:xjstar}.
+
+Substituting \(x_j^*(q)=R_j(q)\) into the entrepreneur's objective yields
+\begin{equation}
+    \max_{x \in [0,1]}
+    \left\{
+        xR_j(q)-\frac{x^2}{2}
+    \right\}
+    =
+    \frac{R_j(q)^2}{2},
+\end{equation}
+which gives \eqref{eq:Uj}.
+
+\subsection{Project choice without the single-crossing restriction}\label{app:projchoice}
+
+Define the private payoff difference
+\begin{equation}
+    D(q)\equiv R_B(q)-R_I(q).
+\end{equation}
+Using the definition of \(R_j(q)\), this difference is
+\begin{equation}\label{eq:Dqpiece}
+    D(q)
+    =
+    \begin{cases}
+        \pi_E^D(B)-\pi_E^D(I), &
+        q < \bar q_B, \\
+        \pi_E^D(B)-\pi_E^D(I)+\beta(q\Delta_B-k), &
+        \bar q_B \le q < \bar q_I, \\
+        \pi_E^D(B)-\pi_E^D(I)+\beta q(\Delta_B-\Delta_I), &
+        q \ge \bar q_I.
+    \end{cases}
+\end{equation}
+Because \(\pi_E^D(I)>\pi_E^D(B)\), we have \(D(q)<0\) for all \(q<\bar q_B\).
+In the intermediate region \([\bar q_B,\bar q_I)\), the buyout-oriented project is preferred if and only if
+\begin{equation}\label{eq:qtilde}
+    q \ge \tilde q
+    \equiv
+    \frac{\pi_E^D(I)-\pi_E^D(B)+\beta k}{\beta \Delta_B}.
+\end{equation}
+Once both projects are merger-feasible, the buyout-oriented project is preferred if and only if
+\begin{equation}\label{eq:qhatappendix}
+    q \ge \hat q
+    \equiv
+    \frac{\pi_E^D(I)-\pi_E^D(B)}{\beta(\Delta_B-\Delta_I)}.
+\end{equation}
+
+Assumption \ref{ass:singlecross} implies \(\hat q \ge \bar q_I\).
+This is equivalent to
+\begin{equation}
+    \pi_E^D(I)-\pi_E^D(B)
+    \ge
+    \beta k\left(\frac{\Delta_B}{\Delta_I}-1\right),
+\end{equation}
+which in turn implies \(\tilde q \ge \bar q_I\).
+Hence no switching occurs in the intermediate region \([\bar q_B,\bar q_I)\), and the equilibrium project choice collapses to the single-threshold characterization in Proposition \ref{prop:projectchoice}.
+
+\subsection{Proof of Proposition \ref{prop:projectchoice}}
+
+By \eqref{eq:Dqpiece}, the payoff difference \(D(q)=R_B(q)-R_I(q)\) is weakly increasing in \(q\), and strictly increasing on any interval where at least one project is merger-feasible.
+
+For \(q<\bar q_I\), Assumption \ref{ass:singlecross} and Appendix \ref{app:projchoice} imply \(D(q)<0\), so project \(I\) is privately optimal.
+
+For \(q\ge \bar q_I\), both projects are merger-feasible and
+\begin{equation}
+    D(q)
+    =
+    \pi_E^D(B)-\pi_E^D(I)+\beta q(\Delta_B-\Delta_I).
+\end{equation}
+Because \(\Delta_B>\Delta_I\), this expression is strictly increasing in \(q\), and it equals zero at
+\begin{equation}
+    q=\hat q
+    =
+    \frac{\pi_E^D(I)-\pi_E^D(B)}
+         {\beta(\Delta_B-\Delta_I)}.
+\end{equation}
+Assumption \ref{ass:singlecross} ensures \(\hat q \in [\bar q_I,1)\).
+Therefore \(D(q)<0\) for \(q<\hat q\), \(D(q)=0\) at \(q=\hat q\), and \(D(q)>0\) for \(q>\hat q\), proving Proposition \ref{prop:projectchoice}. \qed
+
+\subsection{Proof of Proposition \ref{prop:entrymonotonicity}}
+
+By \eqref{eq:Rbarpiece},
+\begin{equation}
+    \bar R(q)
+    =
+    \begin{cases}
+        \pi_E^D(I), &
+        q < \bar q_I, \\
+        \pi_E^D(I)+\beta(q\Delta_I-k), &
+        \bar q_I \le q < \hat q, \\
+        \pi_E^D(B)+\beta(q\Delta_B-k), &
+        q \ge \hat q.
+    \end{cases}
+\end{equation}
+Differentiating on each interval yields
+\begin{equation}
+    \frac{d\bar R(q)}{dq}
+    =
+    \begin{cases}
+        0, & q < \bar q_I, \\
+        \beta \Delta_I, & \bar q_I < q < \hat q, \\
+        \beta \Delta_B, & q > \hat q,
+    \end{cases}
+\end{equation}
+which proves part (i).
+
+Part (ii) follows from \(x^*(q)=\bar R(q)\).
+
+For part (iii), recall that under Assumption \ref{ass:interior},
+\begin{equation}
+    n(s,q)=s+\frac{\bar R(q)^2}{2}.
+\end{equation}
+Differentiating with respect to \(q\) gives
+\begin{equation}
+    \frac{\partial n(s,q)}{\partial q}
+    =
+    \bar R(q)\frac{d\bar R(q)}{dq}.
+\end{equation}
+Because \(\bar R(q)>0\) and \(d\bar R(q)/dq \ge 0\), entrant mass is weakly increasing in \(q\). \qed
+
+\subsection{Proof of Corollary \ref{cor:subsidy}}
+
+From \eqref{eq:Uj},
+\begin{equation}
+    U_j(f;s,q)=s-f+\frac{R_j(q)^2}{2}.
+\end{equation}
+Since the term \(s\) enters identically for both projects, it does not affect the ranking of \(U_I\) and \(U_B\), and therefore it does not affect private project choice.
+Because effort depends only on the chosen project's continuation value \(R_{j^*(q)}(q)\), effort is likewise unaffected.
+
+From \eqref{eq:entrycutoff},
+\begin{equation}
+    f^*(s,q)=s+\frac{\bar R(q)^2}{2},
+\end{equation}
+so
+\begin{equation}
+    \frac{\partial f^*(s,q)}{\partial s}=1.
+\end{equation}
+Under the uniform distribution,
+\begin{equation}
+    n(s,q)=f^*(s,q),
+\end{equation}
+hence
+\begin{equation}
+    \frac{\partial n(s,q)}{\partial s}=1.
+\end{equation}
+This proves Corollary \ref{cor:subsidy}. \qed
+
+\subsection{A note on type-specific approval or exit-realizability shifts}\label{app:typespecificq}
+
+The main text uses a single reduced-form parameter \(q\) in order to keep the private equilibrium one-dimensional.
+The underlying mechanism does not require that simplification.
+Suppose instead that project \(j\) faces its own approval or exit-realizability parameter \(r_j\in[0,1]\).
+Continuation values become
+\begin{equation}
+    R_j(r_j)=\pi_E^D(j)+\beta[r_j\Delta_j-k]_+,
+    \qquad j\in\{I,B\}.
+\end{equation}
+The entrepreneur then chooses the buyout-oriented project if and only if
+\begin{equation}
+    R_B(r_B)\ge R_I(r_I).
+\end{equation}
+Thus the composition mechanism survives whenever the effective exit shift for project \(B\) is sufficiently strong relative to its lower stand-alone payoff.
+The baseline restriction \(r_I=r_B=q\) is adopted only to isolate that mechanism with a single policy or exit-environment shifter.
+
+\subsection{General distributions and the scope of Appendix B}\label{app:generalG}
+
+This appendix shows that the main private-equilibrium results do not rely on the uniform distribution beyond the closed-form expression for entrant mass.
+
+Let the fixed entry cost \(f\) be drawn from a continuously differentiable distribution \(G\) with density \(g\), supported on an interval containing all relevant cutoffs.
+Define
+\begin{equation}
+    \Phi(q)\equiv
+    \max_{j \in \{I,B\}}
+    \left\{
+        \max_{x \in [0,1]}
+        \left[
+            xR_j(q)-\frac{x^2}{2}
+        \right]
+    \right\}.
+\end{equation}
+Under Assumption \ref{ass:interior},
+\begin{equation}
+    \Phi(q)=\frac{\bar R(q)^2}{2}.
+\end{equation}
+The entrepreneur enters if and only if
+\begin{equation}
+    f \le s+\Phi(q),
+\end{equation}
+so the mass of entrants is
+\begin{equation}
+    n_G(s,q)=G\bigl(s+\Phi(q)\bigr).
+\end{equation}
+Differentiating gives
+\begin{align}
+    \frac{\partial n_G(s,q)}{\partial s}
+    &= g\bigl(s+\Phi(q)\bigr), \\
+    \frac{\partial n_G(s,q)}{\partial q}
+    &= g\bigl(s+\Phi(q)\bigr)\Phi'(q).
+\end{align}
+Hence the qualitative conclusions of Proposition \ref{prop:entrymonotonicity} remain unchanged:
+whenever \(\Phi'(q)\ge 0\), a more permissive merger policy weakly increases entry.
+
+Appendix B studies the private equilibrium under a general entry-cost distribution \(G(f)\).
+Because the revised welfare analysis in Sections \ref{sec:subsidy} and \ref{sec:decentralized}
+explicitly integrates realized fixed costs and the fiscal subsidy cost, welfare under general \(G\)
+is handled in the planner-specific appendices rather than through a separate reduced-form shortcut
+here. In particular, the relevant planner-\(p\) welfare object takes the form
+\begin{equation}
+    W_j^p(s,q)
+    =
+    \int_0^{c_j(s,q)}
+    \left[
+        R_j(q)B_j^p(q)-\frac{R_j(q)^2}{2}-f-\tau s
+    \right]\,dG(f),
+\end{equation}
+with
+\begin{equation}
+    c_j(s,q)=s+\frac{R_j(q)^2}{2}.
+\end{equation}
+Accordingly, Appendix B contains no separate reduced-form welfare shortcut beyond the
+private-equilibrium objects derived above.

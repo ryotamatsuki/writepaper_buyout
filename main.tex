@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+
+% -------------------------------------------------
+% Packages
+% -------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\doublespacing
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage[round,authoryear]{natbib}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+% -------------------------------------------------
+% Theorem environments
+% -------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% -------------------------------------------------
+% Title
+% -------------------------------------------------
+\title{Entry Subsidies under Buyout Exit:\\
+Antitrust, Innovation Direction, and the Local--National Policy Wedge}
+
+% Keep author information commented out for submission-safe anonymity.
+% \author{Author Name\\
+% \small Affiliation\\
+% \small email@example.com}
+
+\date{\today}
+
+% -------------------------------------------------
+% Document
+% -------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper studies startup subsidies when entrepreneurial success often leads to acquisition rather than independent competition. Entrepreneurs choose whether to enter, how much effort to exert, and whether to pursue an independence-oriented or buyout-oriented project. More permissive merger policy raises entry and effort by improving exit options, but it also redirects innovation toward buyout-oriented projects. Because a uniform entry subsidy does not affect project choice, it cannot correct that composition distortion. Consequently, a thicker buyout market can reduce the optimal subsidy and create a local--national policy wedge.
+\end{abstract}
+
+\noindent
+\textbf{Keywords:} startup subsidies; acquisitions; merger policy; innovation direction; entrepreneurship; local--national policy wedge
+
+\noindent
+\textbf{JEL codes:} L13; L26; L41; O31
+
+\newpage
+
+\input{sections/01_intro}
+\input{sections/02_related}
+\input{sections/03_model}
+\input{sections/04_private_equilibrium}
+\input{sections/05_subsidy_design}
+\input{sections/06_decentralized_policy}
+\input{sections/07_extensions_policy}
+\input{sections/08_conclusion}
+
+\appendix
+\input{appendices/A_model_derivations}
+\input{appendices/B_private_equilibrium}
+\input{appendices/C_subsidy_design}
+\input{appendices/D_decentralized_policy}
+\input{appendices/E_extensions_policy}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

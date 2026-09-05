@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+
+% -------------------------------------------------
+% Packages
+% -------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\doublespacing
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage[round,authoryear]{natbib}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={Entry Subsidies under Buyout Exit: Merger Policy, Project Orientation, and the Local--National Incidence Wedge},
+  pdfauthor={Ryota Matsuki},
+  pdfkeywords={startup subsidies, acquisitions, merger policy, project orientation, entrepreneurship, incidence-based policy}
+}
+
+% -------------------------------------------------
+% Theorem environments
+% -------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% -------------------------------------------------
+% Title
+% -------------------------------------------------
+\title{Entry Subsidies under Buyout Exit:\\
+Merger Policy, Project Orientation, and the Local--National Incidence Wedge}
+
+\author{Ryota Matsuki\thanks{Corresponding author. Email: \texttt{ryota.matsuki@gmail.com}. This work was conducted in a personal capacity; the views expressed are solely those of the author.}\\
+\small Independent Researcher, Matsuyama, Ehime, Japan\\
+\small Corresponding author: \texttt{ryota.matsuki@gmail.com}}
+
+\date{}
+
+% -------------------------------------------------
+% Document
+% -------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper studies startup subsidies when entrepreneurial success often leads to acquisition rather than independent competition. Entrepreneurs choose whether to enter, how much effort to exert, and whether to pursue an independence-oriented or buyout-oriented project. Throughout, the approval parameter is a reduced-form summary of merger permissiveness or, more broadly, exit realizability. A more permissive exit environment raises entry and effort by improving exit options, but it can also redirect entrepreneurial project choice toward buyout-oriented projects. Because a uniform entry subsidy does not affect project choice, it cannot correct that composition distortion. Consequently, easier buyout exit can reduce the optimal subsidy and alter the relevant local--national incidence wedge.
+\end{abstract}
+
+\noindent
+\textbf{Keywords:} startup subsidies; acquisitions; merger policy; project orientation; entrepreneurship; incidence-based policy
+
+\noindent
+\textbf{JEL codes:} L13; L26; L41; O31
+
+\newpage
+
+\input{sections/01_intro}
+\input{sections/02_related}
+\input{sections/03_model}
+\input{sections/04_private_equilibrium}
+\input{sections/05_subsidy_design}
+\input{sections/06_decentralized_policy}
+\input{sections/07_extensions_policy}
+\input{sections/08_conclusion}
+
+\appendix
+\input{appendices/A_model_derivations}
+\input{appendices/B_private_equilibrium}
+\input{appendices/C_subsidy_design}
+\input{appendices/D_decentralized_policy}
+\input{appendices/E_extensions_policy}
+
+\section*{Funding}
+
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Declaration of competing interest}
+
+The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Data availability}
+
+No data were used for the research described in this article.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+
+During the preparation of this work, the author used ChatGPT/Codex (OpenAI) in order to brainstorm and refine ideas and exposition, summarize and organize related literature, draft and edit portions of the manuscript for clarity and readability, and obtain suggestions for checking algebraic derivations and numerical verifications. After using this tool/service, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article. The author independently verified all factual statements, citations, mathematical derivations, and computational results.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

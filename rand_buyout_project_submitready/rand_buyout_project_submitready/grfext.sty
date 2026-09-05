@@ -1,0 +1,17 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{grfext}[2026/03/12 Local fallback for missing grfext]
+
+\makeatletter
+\@ifundefined{Gin@extensions}{\def\Gin@extensions{}}{}
+
+% Minimal support needed by epstopdf-base.
+\providecommand*{\AppendGraphicsExtensions}[1]{%
+  \g@addto@macro\Gin@extensions{,#1}%
+}
+
+\providecommand*{\PrependGraphicsExtensions}[1]{%
+  \edef\Gin@extensions{#1,\Gin@extensions}%
+}
+\makeatother
+
+\endinput

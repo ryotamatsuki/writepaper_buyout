@@ -1,0 +1,1419 @@
+\documentclass[11pt]{ltjsarticle}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{luatexja}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{leftmargin=*}
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}{-3.5ex \@plus -1ex \@minus -.2ex}{2.3ex \@plus.2ex}{\normalfont\Large}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex \@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont\large}}
+\makeatother
+\title{
+Entry Subsidies under Buyout Exit
+}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\bigskip
+
+
+\begin{center}
+\large\textbf{数式つき解説}
+\end{center}
+
+
+この文書は、論文
+
+\textbf{"Entry Subsidies under Buyout Exit: Merger Policy, Project Orientation, and the Local--National Incidence Wedge"}
+
+を、数学に抵抗のない社会人・政策担当者・実務家が、数式の意味を追いながら読めるように整理した解説である。  
+厳密さはできるだけ保ちつつ、論文全体の論理に加えて、「各記号が現実には何を表しているのか」「どのような現象や政策論を説明するのか」が見えるように説明する。
+
+この解説では、論文の専門用語を次のように少しかみ砕いて読む。
+
+\begin{itemize}[leftmargin=*]
+\item merger permissiveness: スタートアップを売却・M\&Aしやすい環境
+\item project orientation: 起業家が会社を「独立成長向き」に作るか「売却向き」に作るかという事業の向き先
+\item local--national incidence wedge: 利益や損失が地方に落ちるのか、国全体に落ちるのかという受益のズレ
+\end{itemize}
+
+
+
+
+\section{この論文の問い}
+
+
+論文の中心的な問いは次である。
+
+\begin{quote}
+スタートアップ補助金は、独立して競争する新規企業を増やすのか。
+それとも、買収されることを前提にした「売却志向型」の起業を増やすのか。
+\end{quote}
+
+
+普通の政策議論では、補助金 $s$ を増やせば起業が増えるので良い、と考えがちである。  
+しかしこの論文では、買収退出のしやすさを表すパラメータ $q$ が高いと、起業家は独立志向型ではなく買収志向型のプロジェクトを選びやすくなる。
+
+現実の言葉に直すと、この論文は
+
+\begin{quote}
+起業支援策は、本当に「独立した競争者」を育てているのか。
+それとも「大企業に高く売れる案件」を増やしているだけなのか。
+\end{quote}
+
+
+を問うている。
+
+この問いはかなり現実的である。たとえば、SaaS、AI、創薬、半導体関連、ディープテックなどでは、
+
+\begin{itemize}[leftmargin=*]
+\item 自力で顧客基盤を作って独立企業として大きくなるケース
+\item 大企業の販売網、データ、規制対応力、製造能力と組み合わせたときに一気に価値が出るケース
+\end{itemize}
+
+
+が混在している。  
+したがって、スタートアップ件数や資金調達件数が増えても、それがそのまま「競争政策として成功した」とは限らない。
+
+その結果、
+
+\begin{itemize}[leftmargin=*]
+\item 起業の\textbf{量}は増える
+\item しかし起業の\textbf{方向}が社会的に望ましくない側へずれる
+\end{itemize}
+
+
+ということが起こりうる。
+
+この論文では、
+
+\begin{quote}
+一律補助金は起業の量は動かせても、プロジェクトの方向は変えられない
+\end{quote}
+
+
+という点にある。
+
+
+
+\section{先行研究との違いとこの論文の新規性}
+
+
+この論文がつながる先行研究は、大きく 3 つある。
+
+\begin{itemize}[leftmargin=*]
+\item M\&A とイノベーションの研究: 買収が将来競争や研究開発の方向をどう変えるかを扱う
+\item 起業支援・VC・政策金融の研究: 補助金や税制優遇が起業や資金調達をどれだけ増やすかを扱う
+\item 地方政策と国全体の政策評価の研究: 地方自治体の支援と国全体の厚生がずれる問題を扱う
+\end{itemize}
+
+
+この論文の違いは、それぞれに対して次の点にある。
+
+\begin{itemize}[leftmargin=*]
+\item M\&A 研究との違い: 買収が競争を弱めるか、研究開発の方向を歪めるかだけでなく、その環境の下で entry subsidy をどう設計すべきかを正面から扱う
+\item 起業支援研究との違い: 「補助金で起業件数が増えるか」ではなく、「買収しやすい世界では、なぜ私的な起業意欲が強くても補助金の根拠は弱くなりうるか」を理論的に示す
+\item 地方対国の研究との違い: 自治体どうしの補助金競争ではなく、buyout exit が便益の帰着先を変え、さらに project switching を通じて relevant wedge 自体を変える点を示す
+\end{itemize}
+
+
+新規性を一言で言うと、この論文は次の 3 点を 1 つの枠組みで結びつけている。
+
+\begin{enumerate}[leftmargin=*]
+\item 買収の「成立」だけでなく、「そもそも試みられるか」を内生化し、その同じ行動条件を private side と social side の両方に入れている
+\item merger permissiveness が起業の量だけでなく、どのタイプの起業が行われるかを変えることを、補助金設計の問題と結びつけている
+\item 一律補助金では composition distortion を直せないこと、さらに地方政府と国の補助金差が project switching によって変わることを、同じモデルで示している
+\end{enumerate}
+
+
+実務的に言えば、この論文の新しさは、「起業支援」「M\&A・競争政策」「地方対国の政策評価」を別々の論点として扱わず、1 つのモデルでつないだ点にある。だからこそ、「exit が厚いほど補助金も厚くすべきだ」とは限らない、という結論が出てくる。
+
+
+
+\section{モデルの基本構造}
+
+
+\subsection{プレイヤー}
+
+
+各市場には以下がいる。
+
+\begin{itemize}[leftmargin=*]
+\item 既存企業 1 社
+\item 潜在的な起業家 1 人
+\item 補助金を決める政府
+\end{itemize}
+
+
+市場ごとに起業家の固定費 $f_m$ が異なる。  
+政府は一律の参入補助金 $s \ge 0$ を設定する。
+
+\subsection{タイミング}
+
+
+論文のタイミングは次の通り。
+
+\begin{enumerate}[leftmargin=*]
+\item 政府が補助金 $s$ を決める
+\item 起業家が固定費 $f_m$ を観察し、参入するか決める
+\item 参入するなら、プロジェクトタイプ $j \in \{I,B\}$ と努力 $x$ を選ぶ
+\item 成功したら、既存企業と起業家が買収を試みるか決める
+\item 買収が試みられた場合、承認確率 $q$ で買収が通る
+\item 買収が通れば統合後企業が市場で行動し、通らなければ独立企業同士で競争する
+\end{enumerate}
+
+
+ここで $q$ は、狭く読めば買収承認確率だが、広くは
+
+\begin{itemize}[leftmargin=*]
+\item merger permissiveness
+\item exit realizability
+\item 買収による退出のしやすさ
+\end{itemize}
+
+
+を表す reduced-form な指標として解釈されている。
+
+現実には、$q$ は単に独禁当局の審査だけではなく、
+
+\begin{itemize}[leftmargin=*]
+\item 大企業がスタートアップ買収に積極的か
+\item VC にとって M\&A exit が実現しやすいか
+\item 事業提携・ライセンス・統合の実務コストが低いか
+\item 買収後に技術や人材を活かしやすいか
+\end{itemize}
+
+
+といった「売りやすい世界かどうか」をまとめて表す記号だと読むと分かりやすい。
+
+
+
+\section{プロジェクトタイプ $I$ と $B$}
+
+
+この論文の核心は、起業家が 2 種類のプロジェクトから選ぶ点にある。
+
+\begin{itemize}[leftmargin=*]
+\item $I$: independence-oriented project
+\end{itemize}
+
+  独立企業として強い
+\begin{itemize}[leftmargin=*]
+\item $B$: buyout-oriented project
+\end{itemize}
+
+  買収対象として魅力的
+
+より一般的に言えば、
+
+\begin{itemize}[leftmargin=*]
+\item $I$ 型は「自分で顧客基盤を育て、単独で会社を大きくする」案件
+\item $B$ 型は「単独でも多少は価値があるが、大企業の既存資産と組み合わさると一気に価値が出る」案件
+\end{itemize}
+
+
+である。
+
+論文では、各タイプの違いを product-market primitives
+
+\[
+(a_j,\sigma_j,m_j)
+\]
+
+
+で表す。
+
+\begin{itemize}[leftmargin=*]
+\item $a_j$: スタートアップ単独の市場性
+\item $\sigma_j$: 既存企業との代替性の強さ
+\item $m_j$: 買収後の統合シナジー、あるいは acquisition-specific rent
+\end{itemize}
+
+
+直感的には、
+
+\begin{itemize}[leftmargin=*]
+\item $I$ 型は単独で売れる
+\item $B$ 型は買収されると価値が高い
+\end{itemize}
+
+
+という区別である。
+
+現実の例でいえば、$I$ 型はニッチでも自前で売上を立てられる業務ソフトや専門サービスに近い。  
+$B$ 型は、大企業の顧客基盤、クラウド、流通網、製造設備、規制対応能力と結びつくと強い技術・特許・研究チームに近い。
+
+
+
+\section{市場での利潤と消費者余剰}
+
+
+\subsection{独立競争}
+
+
+成功したスタートアップが独立のまま市場に出ると、既存企業と新規企業はクールノー競争をする。逆需要は
+
+\[
+p_I = 1 - q_I - \sigma_j q_E,
+\]
+
+
+\[
+p_E = a_j - q_E - \sigma_j q_I
+\]
+
+
+である。
+
+もちろん、現実のスタートアップ市場がそのまま数量競争で動いているわけではない。  
+ここでのクールノー競争は、「新規参入が起きたとき、価格・数量・市場シェア・利潤がどう変わるか」を簡潔に表す reduced-form の装置だと理解すればよい。
+
+ここで
+
+\begin{itemize}[leftmargin=*]
+\item $q_I$: 既存企業の数量
+\item $q_E$: 新規企業の数量
+\end{itemize}
+
+
+であり、承認確率 $q$ とは別物である。
+
+独立時の均衡数量は
+
+\[
+q_I^D(j)=\frac{2-a_j\sigma_j}{4-\sigma_j^2},
+\qquad
+q_E^D(j)=\frac{2a_j-\sigma_j}{4-\sigma_j^2}.
+\]
+
+
+したがって利潤は
+
+\[
+\pi_I^D(j)=\left(\frac{2-a_j\sigma_j}{4-\sigma_j^2}\right)^2,
+\qquad
+\pi_E^D(j)=\left(\frac{2a_j-\sigma_j}{4-\sigma_j^2}\right)^2.
+\]
+
+
+消費者余剰は
+
+\[
+C^D(j)
+=
+\frac{1}{2}
+\left[
+\bigl(q_I^D(j)\bigr)^2
++ \bigl(q_E^D(j)\bigr)^2
++ 2\sigma_j q_I^D(j)q_E^D(j)
+\right].
+\]
+
+
+\subsection{買収が承認された場合}
+
+
+買収が承認されると、統合後企業は joint profit を最大化する。
+
+総利潤は
+
+\[
+\Pi^M(j)=\Pi_{\mathrm{op}}^M(j)+m_j
+\]
+
+
+であり、消費者余剰は
+
+\[
+C^M(j)
+=
+\frac{1}{2}
+\left[
+\bigl(q_I^M(j)\bigr)^2
++ \bigl(q_E^M(j)\bigr)^2
++ 2\sigma_j q_I^M(j)q_E^M(j)
+\right].
+\]
+
+
+ここで重要なのは、買収の\textbf{私的な追加利益}である merger surplus
+
+\[
+\Delta_j \equiv \Pi^M(j)-\pi_I^D(j)-\pi_E^D(j)
+\]
+
+
+である。
+
+この $\Delta_j$ が大きいほど、そのプロジェクトは「買収される価値が高い」。
+
+
+
+\section{タイプの仮定}
+
+
+論文の基本仮定は
+
+\[
+\pi_E^D(I) > \pi_E^D(B),
+\qquad
+\Delta_B > \Delta_I.
+\]
+
+
+である。
+
+意味は次の通り。
+
+\begin{itemize}[leftmargin=*]
+\item $I$ 型は独立時のスタートアップ利潤が高い
+\item $B$ 型は買収時の surplus が高い
+\end{itemize}
+
+
+つまり
+
+\begin{itemize}[leftmargin=*]
+\item 独立成長に向くのが $I$
+\item 売却に向くのが $B$
+\end{itemize}
+
+
+である。
+
+
+
+\section{買収はいつ試みられるか}
+
+
+この論文の理論的に良い点は、買収が自動的に起きるのではなく、\textbf{試みるかどうかが内生的}なことだ。
+
+買収には固定費 $k>0$ がかかる。  
+これは現実には、デューデリジェンス費用、法務費用、統合コスト、経営陣の時間、場合によっては当局対応コストに対応する。
+したがって買収は、期待利益がコストを上回るときだけ試みられる。
+
+条件は
+
+\[
+q\Delta_j \ge k.
+\]
+
+
+これを満たすときだけ merger attempt が行われる。  
+したがって、attempt indicator を
+
+\[
+a_j(q)=\mathbf{1}\{q\Delta_j \ge k\}
+\]
+
+
+と書く。
+
+これは非常に重要である。  
+なぜなら、社会厚生の計算でもこの attempt condition を守らないと、実際には起こりえない買収を勝手に混ぜてしまうからである。
+
+
+
+\section{起業家の私的行動}
+
+
+\subsection{成功後の見込み取り分（continuation value）}
+
+
+成功した後、起業家が受け取る期待利得は
+
+\[
+R_j(q)
+=
+\pi_E^D(j)+\beta[q\Delta_j-k]_+
+\]
+
+
+である。
+
+これは平たく言えば、「起業家が成功したとき、最終的に自分の手元にどれくらい残ると見込んでいるか」である。  
+現実の起業家の意思決定でも、IPO か売却か、持分がどれだけ残るか、買収プレミアムがどれくらい期待できるかは、努力や参入判断に大きく影響する。
+
+ここで
+
+\begin{itemize}[leftmargin=*]
+\item $\pi_E^D(j)$ は独立時の起業家利潤
+\item $\beta$ は Nash bargaining における起業家の取り分
+\item $[z]_+ = \max\{z,0\}$
+\end{itemize}
+
+
+である。
+
+したがって、
+
+\begin{itemize}[leftmargin=*]
+\item 買収が試みられないとき: $R_j(q)=\pi_E^D(j)$
+\item 買収が魅力的なとき: $R_j(q)$ は $q$ とともに上がる
+\end{itemize}
+
+
+\subsection{努力}
+
+
+努力 $x$ は成功確率で、コストは
+
+\[
+c(x)=\frac{x^2}{2}.
+\]
+
+
+したがって起業家は
+
+\[
+\max_{x\in[0,1]} \; xR_j(q)-\frac{x^2}{2}
+\]
+
+
+を解き、内点解の仮定のもとで
+
+\[
+x_j^*(q)=R_j(q)
+\]
+
+
+となる。
+
+直感は単純で、
+
+\begin{quote}
+成功したときの価値が高いほど、努力も大きい
+\end{quote}
+
+
+ということである。
+
+現実には、努力 $x$ は単なる「気合い」ではなく、
+
+\begin{itemize}[leftmargin=*]
+\item 優秀な人材の採用
+\item プロトタイプ開発
+\item 顧客開拓
+\item 規制・認証対応
+\item 大企業との提携交渉
+\end{itemize}
+
+
+のような前向きな投資全体の強さを表していると読める。
+
+\subsection{参入前の私的利得}
+
+
+固定費 $f$ を持つ起業家の参入利得は
+
+\[
+U_j(f;s,q)
+=
+s-f+\frac{R_j(q)^2}{2}.
+\]
+
+
+ここで補助金 $s$ が\textbf{加法的に}入っていることが重要である。
+これは、補助金が「参入するかどうか」の採算には効いても、「どんな会社を作るか」の相対比較には直接効かないことを意味する。
+
+
+
+\section{プロジェクト選択}
+
+
+補助金 $s$ は $U_j(f;s,q)$ に同じように加わるので、プロジェクトの順位に影響しない。  
+したがって project choice は $R_I(q)$ と $R_B(q)$ の比較だけで決まる。
+
+論文では単一閾値の仮定の下で、
+
+\[
+j^*(q)
+=
+\begin{cases}
+I, & q<\hat q, \\
+\{I,B\}, & q=\hat q, \\
+B, & q>\hat q
+\end{cases}
+\]
+
+
+となる。
+
+意味は非常に明確である。
+
+\begin{itemize}[leftmargin=*]
+\item $q$ が低い: 買収しにくい
+\end{itemize}
+
+  $\Rightarrow$ 独立で強い $I$ 型を選ぶ
+
+\begin{itemize}[leftmargin=*]
+\item $q$ が高い: 買収しやすい
+\end{itemize}
+
+  $\Rightarrow$ 買収価値の高い $B$ 型を選ぶ
+
+この閾値 $\hat q$ の存在こそが、論文のいう \textbf{project orientation の歪み} である。
+
+より一般的に言えば、これは
+
+\begin{quote}
+売りやすい世界になるほど、起業家の発想が「長く競争する会社を育てる」方向から、「高く売れる会社を作る」方向へ傾く
+\end{quote}
+
+
+ということである。
+
+
+
+\section{参入}
+
+
+起業家は
+
+\[
+\max\{U_I(f;s,q),U_B(f;s,q)\}\ge 0
+\]
+
+
+なら参入する。  
+したがって参入 cutoff は
+
+\[
+f^*(s,q)=s+\frac{\bar R(q)^2}{2},
+\qquad
+\bar R(q)\equiv \max\{R_I(q),R_B(q)\}.
+\]
+
+
+固定費が一様分布なので、参入者数は
+
+\[
+n(s,q)=s+\frac{\bar R(q)^2}{2}.
+\]
+
+
+よって
+
+\begin{itemize}[leftmargin=*]
+\item $s$ が高いほど参入が増える
+\item $q$ が高くなって $\bar R(q)$ が上がるほど参入が増える
+\end{itemize}
+
+
+ことがわかる。
+
+
+
+\section{一律補助金の限界}
+
+
+この節の結論は
+
+\[
+\frac{\partial f^*(s,q)}{\partial s}=1,
+\qquad
+\frac{\partial n(s,q)}{\partial s}=1
+\]
+
+
+であり、同時に project choice も effort も補助金では変わらない、という点である。
+
+つまり一律補助金は
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{参入の量}には効く
+\item \textbf{プロジェクトの方向}には効かない
+\end{itemize}
+
+
+したがって、もし問題が「起業が少なすぎる」ではなく
+
+\textbf{「買収志向型に偏りすぎる」}
+
+ことであるなら、一律補助金だけでは対処できない。
+
+現実の政策で言えば、起業補助金、税額控除、アクセラレーター参加補助、オフィス賃料補助などの「広く薄く配る支援」は、ここでいう一律補助金に近い。  
+それらは起業件数を押し上げても、独立成長型の会社を相対的に増やすとは限らない。
+
+
+
+\section{Section 5 の基本的な社会評価（primitive benchmark）}
+
+
+ここでは、primitive benchmark welfare を
+
+\begin{itemize}[leftmargin=*]
+\item 消費者余剰
+\item 利潤
+\item merger attempt condition
+\end{itemize}
+
+
+だけから定義している。
+
+言い換えれば、ここではまず
+
+\begin{quote}
+「誰にお金が落ちるか」という地域別の細かい話をいったん脇に置き、
+買収が競争・消費者・総余剰にとって良いのか悪いのか
+\end{quote}
+
+
+を先に判定している。
+
+\subsection{独立時と買収時の社会的価値}
+
+
+独立所有の benchmark social value を
+
+\[
+V_j^D \equiv C^D(j)+\pi_I^D(j)+\pi_E^D(j)
+\]
+
+
+買収承認時の benchmark social value を
+
+\[
+V_j^A \equiv C^M(j)+\Pi^M(j)
+\]
+
+
+と置く。
+
+そしてその差を
+
+\[
+\Omega_j \equiv V_j^A-V_j^D
+\]
+
+
+と定義する。
+
+さらに
+
+\[
+\Omega_j
+=
+\bigl(C^M(j)-C^D(j)\bigr)+\Delta_j
+\]
+
+
+なので、$\Omega_j$ は
+
+\begin{itemize}[leftmargin=*]
+\item 私的 merger surplus $\Delta_j$
+\item 消費者余剰変化 $C^M-C^D$
+\end{itemize}
+
+
+の合計として読める。
+
+ここで重要なのは、$\Omega_j$ が planner-specific な incidence ではなく、\textbf{product-market primitives から決まる}という点である。
+
+現実の意味で言えば、$\Omega_j$ は「買収価格が高いか」ではなく、
+
+\begin{itemize}[leftmargin=*]
+\item 買収で重複投資が減り、普及や商業化が進むのか
+\item それとも将来の競争相手を早めに消してしまうのか
+\end{itemize}
+
+
+を表す指標だと読める。  
+したがって、民間で高く売れる案件が、社会的にも良い案件であるとは限らない。
+
+
+
+\section{成功したプロジェクトの benchmark social value}
+
+
+attempt condition を尊重すると、成功した type-$j$ project の social value は
+
+\[
+B_j^{PM}(q)
+\equiv
+V_j^D+a_j(q)\bigl[q\Omega_j-k\bigr]
+\]
+
+
+となる。
+
+この式によって、成功した案件の社会的価値を、独立時の価値と買収発生時の追加効果に分けて読める。
+
+\subsection{どう読むか}
+
+
+\begin{itemize}[leftmargin=*]
+\item もし $q\Delta_j<k$ なら $a_j(q)=0$
+\end{itemize}
+
+  $\Rightarrow$ 買収は試みられず、成功したプロジェクトの価値は単に $V_j^D$
+
+\begin{itemize}[leftmargin=*]
+\item もし $q\Delta_j\ge k$ なら $a_j(q)=1$
+\end{itemize}
+
+  $\Rightarrow$ 買収が試みられ、承認確率 $q$ で買収時価値 $\Omega_j$ が入り、コスト $k$ がかかる
+
+つまりこれは
+
+\begin{quote}
+社会厚生も private side と同じく「買収が試みられるか」を尊重して計算すべきだ
+\end{quote}
+
+
+という論文の methodological point を数式にしたものである。
+
+
+
+\section{benchmark welfare と最適補助金}
+
+
+固定されたプロジェクト $j$ について benchmark welfare は
+
+\[
+W_j^{PM}(s,q)
+=
+\int_0^{c_j(s,q)}
+\left[
+R_j(q)B_j^{PM}(q)-\frac{R_j(q)^2}{2}-f-\tau s
+\right] df
+\]
+
+
+である。ここで
+
+\[
+c_j(s,q)=s+\frac{R_j(q)^2}{2}
+\]
+
+
+は entry cutoff である。
+
+この welfare は $s$ について凹であり、最適補助金は
+
+\[
+s_j^{PM*}(q)
+=
+\max\left\{
+0,\;
+\frac{
+R_j(q)B_j^{PM}(q)-\frac{\tau+2}{2}R_j(q)^2
+}{2\tau+1}
+\right\}
+\]
+
+
+となる。
+
+\subsection{経済学的な意味}
+
+
+この式は
+
+\begin{itemize}[leftmargin=*]
+\item $B_j^{PM}(q)$ が大きいほど補助金を出したい
+\item $R_j(q)$ がすでに大きいと、民間インセンティブが強いので補助金の必要性は下がる
+\end{itemize}
+
+
+という構造になっている。
+
+つまり政府は、
+
+\textbf{「社会的価値が高いが、民間インセンティブでは足りない」}
+
+ところを埋めるために補助金を使う。
+
+この点は政策実務でも重要である。  
+政府の目的は「高く売却できる会社」を増やすことではなく、「社会的に望ましい新規事業」を十分に生み出すことである。
+
+
+
+\section{買収環境と最適補助金の比較静学}
+
+
+買収が十分起こりうる領域で、論文は
+
+\[
+\frac{d s_j^{PM*}(q)}{dq}
+=
+\frac{
+\beta\Delta_j\bigl[B_j^{PM}(q)-(\tau+2)R_j(q)\bigr]
++
+R_j(q)\Omega_j
+}{2\tau+1}
+\]
+
+
+を導いている。
+
+この式はやや複雑だが、要するに 2 つの力がある。
+
+\subsection{力 1: $q$ が上がると private continuation value が上がる}
+
+
+これは起業家のやる気を強める。  
+すでに民間が参入しやすくなるので、補助金の必要性を下げやすい。
+
+\subsection{力 2: $q$ が上がると social value も変わる}
+
+
+その変化を担うのが $\Omega_j$ である。
+
+\begin{itemize}[leftmargin=*]
+\item もし $\Omega_j>0$ なら、買収は社会的にも価値がある
+\item もし $\Omega_j<0$ なら、買収は社会的にはむしろ望ましくない
+\end{itemize}
+
+
+したがって、$q$ が上がったときに補助金が増えるか減るかは一概には言えない。
+
+現実には、$\Omega_j>0$ になりやすいのは、買収によって量産・流通・規制対応・補完技術の統合が進み、消費者便益が増えるケースである。  
+逆に $\Omega_j<0$ になりやすいのは、将来競争相手になりうる企業を既存大企業が早めに囲い込み、独立競争が弱まるケースである。
+
+ただし論文は、もし
+
+\[
+\Omega_j \le 0
+\qquad\text{and}\qquad
+B_j^{PM}(q)\le (\tau+2)R_j(q)
+\]
+
+
+なら
+
+\[
+\frac{d s_j^{PM*}(q)}{dq}\le 0
+\]
+
+
+であることを示す。
+
+つまり、
+
+\begin{quote}
+買収環境の改善が社会的価値を高めず、むしろ private incentive だけを強めるなら、最適補助金は下がる
+\end{quote}
+
+
+のである。
+
+
+
+\section{私的 project choice を入れたときの結論}
+
+
+実際にはプロジェクトは政府ではなく起業家が選ぶ。  
+したがって uniform subsidy の benchmark は
+
+\[
+s^{PM*}(q)=s_{j^*(q)}^{PM*}(q)
+\]
+
+
+である。
+
+つまり、起業家が選んだプロジェクトに応じて最適補助金も切り替わる。
+
+ここで重要なのは、$q$ が $\hat q$ を超えると
+
+\[
+j^*(q): I \to B
+\]
+
+
+と切り替わる点である。
+
+もしそのとき
+
+\[
+B_B^{PM}(\hat q)<\frac{\tau+2}{2}R_B(\hat q)
+\]
+
+
+なら、論文は
+
+\[
+s^{PM*}(q)=0
+\qquad
+\text{for } q \in (\hat q,\hat q+\varepsilon)
+\]
+
+
+となることを示す。
+
+\subsection{解釈}
+
+
+これはかなり強い結果である。
+
+買収環境の改善によって起業家が $B$ 型へ切り替えると、
+
+\begin{itemize}[leftmargin=*]
+\item private return は高い
+\item しかし benchmark social value は弱い
+\end{itemize}
+
+
+というケースでは、政府は
+
+\textbf{「もう補助する理由がない」}
+
+と判断する。
+
+これは現実の政策論にかなり近い。  
+「スタートアップが増えている」「M\&A も活発だ」という事実だけでは、起業支援の追加拡大を正当化できない。  
+独立企業としての競争圧力や社会的便益が弱いなら、むしろ補助金を絞るべき可能性がある。
+
+したがってこの論文は、
+
+\begin{quote}
+merger permissiveness が高いほど subsidy should be higher
+\end{quote}
+
+
+とは言わない。むしろ逆になることを示している。
+
+
+
+\section{Section 6: 誰に便益が落ちるかの拡張（incidence extension）}
+
+
+ここから先は primitive benchmark に、local / national の incidence を乗せる拡張である。
+
+planner $p$ の successful-project value を $B_j^p(q)$ と書き、
+
+\[
+D_j^p(q)\equiv B_j^p(q)-B_j^{PM}(q)
+\]
+
+
+を benchmark からの incidence adjustment と定義する。
+
+このとき planner-$p$ の最適補助金は
+
+\[
+s_j^{p*}(q)
+=
+s_j^{PM*}(q)
++
+\frac{R_j(q)D_j^p(q)}{2\tau+1}
+\]
+
+
+となる。
+
+この分解により、benchmark と incidence adjustment を分けて読める。
+
+\subsection{何が嬉しいのか}
+
+
+この式の意味は、
+
+\begin{itemize}[leftmargin=*]
+\item まず primitive benchmark subsidy がある
+\item local / national の違いはそこからの adjustment にすぎない
+\end{itemize}
+
+
+ということである。
+
+つまり、論文の main normative result はもう incidence assumptions の上に直接立っていない。
+
+この構成は実務上かなり分かりやすい。  
+まず「国全体としてその政策が良いのか」を考え、その後で「地方自治体にとってはどう見えるか」を足し込むからである。
+
+
+
+\section{local planner と national planner}
+
+
+論文では local planner の value を
+
+\[
+B_j^{L,D}
+=
+C^D(j)
++ \lambda_I^L \pi_I^D(j)
++ \lambda_E^L \pi_E^D(j)
++ \eta_j^D
+\]
+
+
+\[
+B_j^{L,A}
+=
+C^M(j)
++ \lambda_M^L \Pi^M(j)
++ \eta_j^A
+\]
+
+
+と書く。
+
+national planner は
+
+\[
+B_j^{N,D}
+=
+C^D(j)+\pi_I^D(j)+\pi_E^D(j)+\xi_j^D
+\]
+
+
+\[
+B_j^{N,A}
+=
+C^M(j)+\Pi^M(j)+\xi_j^A
+\]
+
+
+である。
+
+ここで
+
+\begin{itemize}[leftmargin=*]
+\item $\lambda$ は profit retention
+\item $\eta,\xi$ は spillover や非金銭的価値
+\end{itemize}
+
+
+を表す。
+
+この拡張では、誰が利益を受け取るか、どこに spillover が落ちるかが地方政府と中央政府で違う。
+
+現実には、
+
+\begin{itemize}[leftmargin=*]
+\item 市や県は雇用、税収、本社機能、創業者所得、地元エコシステムを重視しやすい
+\item 国は全国の消費者余剰、産業全体の競争、技術進歩の配分を重視しやすい
+\end{itemize}
+
+
+という違いに対応している。
+
+
+
+\section{地方政府と国の補助金格差（local-national wedge）}
+
+
+両者の subsidy の差は、固定された project $j$ に対して
+
+\[
+s_j^{L*}(q)-s_j^{N*}(q)
+=
+\frac{R_j(q)\bigl(B_j^L(q)-B_j^N(q)\bigr)}{2\tau+1}
+\]
+
+
+となる。
+
+これは Corollary 2 の内容である。
+
+\subsection{解釈}
+
+
+固定 project については、wedge の符号は単に
+
+\[
+B_j^L(q)-B_j^N(q)
+\]
+
+
+の符号で決まる。
+
+つまり、
+
+\begin{itemize}[leftmargin=*]
+\item 地方政府がその project を national より高く評価するなら、地方補助金は高くなる
+\item 逆なら低くなる
+\end{itemize}
+
+
+これは代数的には比較的素直な結果である。
+
+現実の読み方としては、ある自治体が「この案件は地元に雇用や税収を残す」と感じれば強く補助したくなり、逆に「売却益の多くは地域外に流れ、消費者便益も全国薄く広がるだけだ」と見れば弱く補助したくなる。
+
+
+
+\section{project switching を入れた均衡での補助金格差}
+
+
+ここでの焦点は、private project choice が切り替わる点である。
+
+equilibrium では
+
+\[
+s^{L*}(q)-s^{N*}(q)
+=
+\frac{\bar R(q)\bigl(\bar B^L(q)-\bar B^N(q)\bigr)}{2\tau+1}
+\]
+
+
+であり、
+
+\[
+\bar R(q)=R_{j^*(q)}(q),\qquad
+\bar B^L(q)=B_{j^*(q)}^L(q),\qquad
+\bar B^N(q)=B_{j^*(q)}^N(q)
+\]
+
+
+である。
+
+つまり、$q$ が上がると
+
+\begin{enumerate}[leftmargin=*]
+\item $R$ が変わる
+\item しかも $j^*(q)$ が変わる
+\item その結果、比較される $B^L$ と $B^N$ 自体も変わる
+\end{enumerate}
+
+
+このため、local-national wedge は単なる incidence difference では終わらず、
+
+\textbf{buyout exit による project switching}
+
+を通じて大きく変化しうる。
+
+ここがこの論文の政策的におもしろい点である。  
+地方自治体と国のズレは、単に「同じ会社をどう評価するか」の違いではない。  
+そもそも M\&A 環境が変わると、起業家が作る会社のタイプ自体が変わり、その結果として地方と国が見ている対象そのものが変わる。
+
+
+
+\section{Section 7: 売却時返還条項（clawback）拡張}
+
+
+これは政策設計を考えるうえで有用な拡張である。
+
+clawback rate を $\rho$ とすると、起業家の continuation value は
+
+\[
+\widetilde R_j(q,\rho)
+=
+\pi_E^D(j)+(1-\rho)\beta[q\Delta_j-k]_+
+\]
+
+
+になる。
+
+つまり clawback は
+
+\begin{itemize}[leftmargin=*]
+\item merger technology
+\item product-market outcome
+\end{itemize}
+
+
+は変えず、
+
+\begin{itemize}[leftmargin=*]
+\item 起業家が買収から得る private return
+\end{itemize}
+
+
+だけを減らす。
+
+現実の制度としては、これは
+
+\begin{itemize}[leftmargin=*]
+\item 補助金を受けた企業が一定期間内に売却されたら一部返還する
+\item 本社移転や早期売却が起きた場合に補助を返してもらう
+\item 一定の独立継続期間を求める
+\end{itemize}
+
+
+といった条項に近い。
+
+その結果、project-switching threshold は
+
+\[
+\hat q(\rho)
+=
+\frac{
+\pi_E^D(I)-\pi_E^D(B)
+}{
+(1-\rho)\beta(\Delta_B-\Delta_I)
+}
+\]
+
+
+となり、
+
+\[
+\frac{\partial \hat q(\rho)}{\partial \rho}>0.
+\]
+
+
+したがって clawback を強めると、buyout-oriented project が選ばれにくくなる。
+
+\subsection{政策設計上の意味}
+
+
+この拡張は、政策手段の役割分担を示している。
+
+\begin{itemize}[leftmargin=*]
+\item subsidy $s$: entry の量に効く
+\item clawback $\rho$: project composition に効く
+\item merger policy $q$: exit environment に効く
+\end{itemize}
+
+
+つまり、
+
+\begin{quote}
+量の政策と方向の政策は別に考えるべき
+\end{quote}
+
+
+ということである。
+
+これは実務の言葉では、
+
+\begin{itemize}[leftmargin=*]
+\item 起業件数を増やす政策
+\item 独立企業として残る確率を高める政策
+\item M\&A への依存度を調整する政策
+\end{itemize}
+
+
+を分けて設計すべき、という意味である。
+
+
+
+\section{論文のコアメッセージ}
+
+
+この論文を一番コンパクトにまとめると、次の 4 点になる。
+
+\subsection{売却・M\&A 環境の改善は参入と努力を増やす}
+
+
+なぜなら
+
+\[
+R_j(q)=\pi_E^D(j)+\beta[q\Delta_j-k]_+
+\]
+
+
+だからである。
+
+\subsection{しかし同時に会社の向き先を $I$ から $B$ に切り替える}
+
+
+つまり「起業の量」だけでなく「起業の方向」が変わる。
+
+\subsection{一律補助金は会社の向き先を変えられない}
+
+
+補助金は
+
+\[
+U_j(f;s,q)=s-f+\frac{R_j(q)^2}{2}
+\]
+
+
+のように加法的に入るだけだからである。
+
+\subsection{したがって $q$ の上昇は最適補助金を下げることがある}
+
+
+特に、private incentives は強まるが social benchmark value が弱いとき、
+
+\[
+s^{PM*}(q)
+\]
+
+
+は低下し、場合によっては 0 になる。
+
+
+
+\section{どういうときにこの論文は役に立つか}
+
+
+この論文は、次のような現実の現象や議論を考えるときに有用である。
+
+\begin{itemize}[leftmargin=*]
+\item スタートアップ政策と反トラスト政策の関係
+\item 地方自治体の起業支援は社会的に妥当か
+\item 「スタートアップが増えること」と「競争が増えること」は同じか
+\item 買収市場が活発な経済で、どんな補助金政策が望ましいか
+\end{itemize}
+
+
+さらに、このモデルは次のような一見ねじれた現象も説明しやすい。
+
+\begin{itemize}[leftmargin=*]
+\item スタートアップ件数は多いのに、独立した有力競争者はあまり増えない
+\item 大企業による買収は盛んだが、消費者にとっての競争圧力は弱まる
+\item 地方自治体は起業支援に前向きでも、国全体で見るとその便益が薄い
+\item 「出口が豊富なこと」は起業には良いが、競争政策上は必ずしも良いとは限らない
+\end{itemize}
+
+
+政策インプリケーションとしては、少なくとも次の点が強い。
+
+\begin{itemize}[leftmargin=*]
+\item 起業支援の KPI を「件数」や「調達額」だけで置かない
+\item 独立継続率、M\&A exit 比率、競争圧力への寄与も追う
+\item スタートアップ政策と M\&A・競争政策を別々に設計しない
+\item 地方支援では、誰に便益が残るかを明示的に評価する
+\item 必要なら clawback や条件付き補助で「方向」の歪みに触る
+\end{itemize}
+
+
+\textbf{「起業を増やす」ことと「独立した競争者を増やす」ことは別である}
+
+という点を理論的に明確にしていることである。
+
+
+
+\section{最後のまとめ}
+
+
+この論文は、スタートアップ政策を
+
+\begin{itemize}[leftmargin=*]
+\item entry
+\item effort
+\item project orientation
+\item buyout exit
+\end{itemize}
+
+
+を同時に含むモデルで考えている。
+
+この論文の核は、
+
+\begin{quote}
+merger permissiveness changes not only how much entrepreneurship occurs, but also what kind of entrepreneurship occurs; because a uniform subsidy affects only the extensive margin, the optimal subsidy need not increase with buyout exit and may instead fall.
+\end{quote}
+
+
+日本語で言えば、
+
+\begin{quote}
+買収しやすい世界では、補助金は起業の数を増やしても、独立競争を生む起業ではなく、売却されることを前提にした起業を増やすかもしれない。だから、最適補助金は必ずしも高くならない。
+\end{quote}
+
+
+政策実務に寄せて言えば、
+
+\begin{quote}
+起業支援は「会社を増やす政策」ではあっても、「独立した競争者を増やす政策」とは限らない。
+その違いを見落とすと、件数では成功でも、競争や地域経済の観点では失敗しうる。
+\end{quote}
+
+
+以上が、この論文の結論である。
+
+
+\end{document}

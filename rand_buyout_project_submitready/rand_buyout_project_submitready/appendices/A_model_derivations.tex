@@ -1,0 +1,172 @@
+\section{Omitted derivations for Section \ref{sec:model}}\label{app:modelderivations}
+
+\subsection{Independent Cournot equilibrium}
+
+Fix a project type \(j \in \{I,B\}\), and suppress the type index for notational convenience.
+Under independent ownership, the incumbent and the entrant solve
+\begin{align}
+    \max_{q_I \ge 0}\;& (1-q_I-\sigma q_E)q_I, \\
+    \max_{q_E \ge 0}\;& (a-q_E-\sigma q_I)q_E.
+\end{align}
+The first-order conditions are
+\begin{align}
+    1-2q_I-\sigma q_E &= 0, \\
+    a-2q_E-\sigma q_I &= 0.
+\end{align}
+Solving the linear system yields
+\begin{align}
+    q_I^D &= \frac{2-a\sigma}{4-\sigma^2}, \\
+    q_E^D &= \frac{2a-\sigma}{4-\sigma^2}.
+\end{align}
+Substituting these quantities into inverse demand gives
+\begin{align}
+    p_I^D &= 1-q_I^D-\sigma q_E^D = q_I^D, \\
+    p_E^D &= a-q_E^D-\sigma q_I^D = q_E^D.
+\end{align}
+Hence independent profits are
+\begin{align}
+    \pi_I^D &= (q_I^D)^2
+    = \left(\frac{2-a\sigma}{4-\sigma^2}\right)^2, \\
+    \pi_E^D &= (q_E^D)^2
+    = \left(\frac{2a-\sigma}{4-\sigma^2}\right)^2.
+\end{align}
+
+\subsection{Merged-firm outcome}
+
+Under common ownership, the merged firm chooses \((q_I,q_E)\) to maximize
+\begin{equation}
+    (1-q_I-\sigma q_E)q_I + (a-q_E-\sigma q_I)q_E + m.
+\end{equation}
+The first-order conditions are
+\begin{align}
+    1-2q_I-2\sigma q_E &= 0, \\
+    a-2q_E-2\sigma q_I &= 0.
+\end{align}
+Solving yields
+\begin{align}
+    q_I^M &= \frac{1-a\sigma}{2(1-\sigma^2)}, \\
+    q_E^M &= \frac{a-\sigma}{2(1-\sigma^2)}.
+\end{align}
+Substituting into joint operating profit yields
+\begin{equation}
+    \Pi_{\mathrm{op}}^M
+    =
+    \frac{a^2-2a\sigma+1}{4(1-\sigma^2)}.
+\end{equation}
+Therefore total merged profit is
+\begin{equation}
+    \Pi^M
+    =
+    \frac{a^2-2a\sigma+1}{4(1-\sigma^2)} + m.
+\end{equation}
+The merger surplus is
+\begin{equation}
+    \Delta
+    =
+    \Pi^M-\pi_I^D-\pi_E^D.
+\end{equation}
+
+\subsection{Consumer surplus}
+
+A quadratic utility representation that rationalizes the inverse demands in Section \ref{sec:model} is
+\begin{equation}
+    U(q_I,q_E)
+    =
+    y + q_I + a q_E
+    - \frac{1}{2}
+      \left(
+        q_I^2 + 2\sigma q_I q_E + q_E^2
+      \right),
+\end{equation}
+where \(y\) is numeraire consumption.
+Inverse demands are the marginal utilities:
+\begin{align}
+    p_I &= \frac{\partial U}{\partial q_I}
+    = 1-q_I-\sigma q_E, \\
+    p_E &= \frac{\partial U}{\partial q_E}
+    = a-q_E-\sigma q_I.
+\end{align}
+Hence consumer surplus is
+\begin{equation}
+    C(q_I,q_E)
+    =
+    \frac{1}{2}
+    \left(
+        q_I^2 + q_E^2 + 2\sigma q_I q_E
+    \right).
+\end{equation}
+Evaluating this expression at \((q_I^D,q_E^D)\) and \((q_I^M,q_E^M)\) yields \(C^D(j)\) and \(C^M(j)\), respectively.
+
+\subsection{Merger-attempt threshold}
+
+For a successful type-\(j\) project, the joint payoff from attempting a merger is
+\begin{equation}
+    q\Pi^M(j) + (1-q)\bigl(\pi_I^D(j)+\pi_E^D(j)\bigr) - k.
+\end{equation}
+The joint payoff from not attempting a merger is
+\begin{equation}
+    \pi_I^D(j)+\pi_E^D(j).
+\end{equation}
+Therefore a merger is attempted if and only if
+\begin{equation}
+    q\Pi^M(j) + (1-q)\bigl(\pi_I^D(j)+\pi_E^D(j)\bigr) - k
+    \ge
+    \pi_I^D(j)+\pi_E^D(j),
+\end{equation}
+which simplifies to
+\begin{equation}
+    q\Delta_j \ge k.
+\end{equation}
+This yields the attempt indicator
+\begin{equation}
+    a_j(q)=\mathbf{1}\{q\Delta_j \ge k\}
+\end{equation}
+used in Sections \ref{sec:subsidy} and \ref{sec:decentralized}.
+
+\subsection*{A.5 Welfare accounting and the primitive benchmark}
+
+The main text distinguishes between the approval probability \(q\) and the attempt decision
+\begin{equation}
+    a_j(q)=\mathbf{1}\{q\Delta_j\ge k\}.
+\end{equation}
+This distinction is essential for consistent welfare accounting.
+
+If \(q\Delta_j<k\), then no merger is attempted in private equilibrium. In that case, successful
+entry necessarily results in independent competition, so any successful-project welfare object must
+coincide with the corresponding independent-ownership value.
+
+If \(q\Delta_j\ge k\), then a merger is attempted. Conditional on attempt, approved acquisition
+occurs with probability \(q\), rejected merger with probability \(1-q\), and the real resource cost \(k\)
+is incurred regardless of approval. This is why planner-specific successful-project values in the main
+text take the piecewise form
+\begin{equation}
+    B_j^p(q)=B_j^{p,D}+a_j(q)\Bigl[q\bigl(B_j^{p,A}-B_j^{p,D}\bigr)-\kappa^p k\Bigr],
+\end{equation}
+where \(p\) indexes the planner.
+
+For the primitive benchmark introduced in revised Section \ref{sec:subsidy}, define
+\begin{equation}
+    V_j^D \equiv C^D(j)+\pi_I^D(j)+\pi_E^D(j),
+    \qquad
+    V_j^A \equiv C^M(j)+\Pi^M(j),
+\end{equation}
+and
+\begin{equation}
+    \Omega_j \equiv V_j^A-V_j^D.
+\end{equation}
+Using the definition of private merger surplus,
+\begin{equation}
+    \Delta_j=\Pi^M(j)-\pi_I^D(j)-\pi_E^D(j),
+\end{equation}
+we can write
+\begin{equation}
+    \Omega_j
+    =
+    \bigl(C^M(j)-C^D(j)\bigr)+\Delta_j.
+\end{equation}
+Hence the primitive benchmark successful-project value is
+\begin{equation}
+    B_j^{PM}(q)\equiv V_j^D+a_j(q)\bigl[q\Omega_j-k\bigr].
+\end{equation}
+This benchmark uses only product-market primitives together with the same endogenous merger-attempt
+condition that governs private continuation values.

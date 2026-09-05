@@ -1,0 +1,239 @@
+\section{Model}\label{sec:model}
+
+This section develops a tractable model of startup subsidies, buyout exit, and merger review.
+The key ingredients are a local entry subsidy, a post-entry choice between an independence-oriented and a buyout-oriented project, and a reduced-form merger approval probability that governs the attractiveness of acquisition as an exit route.
+
+\subsection{Environment and timing}
+
+Consider a unit measure of independent local markets indexed by \(m \in [0,1]\).
+In each market there is one incumbent firm and one potential startup project.
+Markets are otherwise identical, except that potential entrants differ in their fixed entry costs.
+A local government offers a uniform entry subsidy \(s \ge 0\) to any entrepreneur who enters.
+
+In each market, the timing is as follows:
+
+\begin{enumerate}
+    \item The local government chooses a uniform entry subsidy \(s\).
+    \item The potential entrepreneur in market \(m\) observes an idiosyncratic fixed cost \(f_m\) and decides whether to enter.
+    \item Conditional on entry, the entrepreneur chooses a project type \(j \in \{I,B\}\) and an effort level \(x \in [0,1]\).
+    \item If the project succeeds, the incumbent and the entrant bargain over a potential merger.
+    \item If a merger is attempted, it is approved with probability \(q \in [0,1]\).
+    \item If the merger is approved, the merged firm operates in the product market; otherwise the incumbent and the entrant compete as independent firms.
+\end{enumerate}
+
+We interpret \(q\) as a reduced-form measure of merger permissiveness.
+A higher \(q\) corresponds to a more permissive merger environment, or more generally to an environment in which buyout exit is easier to realize.
+The baseline keeps this shift project-invariant in order to focus on project choice and welfare accounting in a one-dimensional way; Appendix \ref{app:typespecificq} briefly notes how the mechanism extends when approval or exit realizability differs across project types.
+To avoid confusion, \(q\) is the approval or exit-realizability parameter, whereas \(q_I\) and \(q_E\) below denote product-market quantities.
+
+The entry cost \(f_m\) is independently drawn from the uniform distribution on \([0,1]\).
+The uniform specification is used for closed-form results in the main text; the appendices show how the analysis extends to a general distribution \(G(f)\).
+
+\subsection{Product-market payoffs}
+
+If entry succeeds, the product-market primitives depend on the entrepreneur's project choice \(j \in \{I,B\}\).
+Type \(I\) denotes an \emph{independence-oriented} project: it is relatively strong as a stand-alone business.
+Type \(B\) denotes a \emph{buyout-oriented} project: it is relatively attractive as an acquisition target.
+These two project types should be read as reduced-form project orientations rather than as a fully dynamic innovation-race model.
+The primitive differences \((a_j,\sigma_j,m_j)\) capture, respectively, stand-alone marketability, product overlap with the incumbent, and acquisition-specific integration value or rents.
+
+For a successful entrant of type \(j\), inverse demands are given by
+\begin{align}
+    p_I &= 1 - q_I - \sigma_j q_E, \\
+    p_E &= a_j - q_E - \sigma_j q_I,
+\end{align}
+where \(q_I\) and \(q_E\) denote the incumbent's and entrant's quantities, respectively,
+\(a_j > 0\) is the entrant's stand-alone demand shifter, and \(\sigma_j \in (0,1)\) captures substitutability between the incumbent's and the entrant's products.
+Marginal costs are normalized to zero.
+
+We impose parameter restrictions ensuring interior product-market solutions under both independent competition and common ownership:
+\begin{equation}\label{eq:interiorpm}
+    \sigma_j < a_j < \frac{1}{\sigma_j},
+    \qquad j \in \{I,B\}.
+\end{equation}
+
+\paragraph{Independent competition.}
+If no merger takes place, the incumbent and the entrant compete \`a la Cournot.
+The incumbent solves
+\begin{equation}
+    \max_{q_I \ge 0}\; (1-q_I-\sigma_j q_E)q_I,
+\end{equation}
+and the entrant solves
+\begin{equation}
+    \max_{q_E \ge 0}\; (a_j-q_E-\sigma_j q_I)q_E.
+\end{equation}
+The unique interior Nash equilibrium is
+\begin{align}
+    q_I^D(j) &= \frac{2-a_j\sigma_j}{4-\sigma_j^2}, \\
+    q_E^D(j) &= \frac{2a_j-\sigma_j}{4-\sigma_j^2}.
+\end{align}
+At this equilibrium, prices satisfy
+\begin{equation}
+    p_I^D(j)=q_I^D(j),
+    \qquad
+    p_E^D(j)=q_E^D(j),
+\end{equation}
+so profits are
+\begin{align}
+    \pi_I^D(j) &= \left(\frac{2-a_j\sigma_j}{4-\sigma_j^2}\right)^2, \\
+    \pi_E^D(j) &= \left(\frac{2a_j-\sigma_j}{4-\sigma_j^2}\right)^2.
+\end{align}
+
+Consumer surplus under independent ownership is
+\begin{equation}\label{eq:csd}
+    C^D(j)
+    =
+    \frac{1}{2}
+    \left[
+        \bigl(q_I^D(j)\bigr)^2
+        + \bigl(q_E^D(j)\bigr)^2
+        + 2\sigma_j q_I^D(j)q_E^D(j)
+    \right].
+\end{equation}
+
+\paragraph{Approved merger.}
+If the entrant is acquired and the merger is approved, the merged firm chooses \((q_I,q_E)\) to maximize joint operating profit.
+In addition, common ownership generates a type-specific synergy \(m_j \ge 0\), which captures the private value of integrating the entrant's technology, customer base, team, or complementary assets into the incumbent.
+
+The merged firm solves
+\begin{equation}
+    \max_{q_I,q_E \ge 0}\;
+    (1-q_I-\sigma_j q_E)q_I
+    +
+    (a_j-q_E-\sigma_j q_I)q_E
+    +
+    m_j.
+\end{equation}
+The unique interior solution is
+\begin{align}
+    q_I^M(j) &= \frac{1-a_j\sigma_j}{2(1-\sigma_j^2)}, \\
+    q_E^M(j) &= \frac{a_j-\sigma_j}{2(1-\sigma_j^2)}.
+\end{align}
+The corresponding operating profit is
+\begin{equation}
+    \Pi_{\mathrm{op}}^M(j)
+    =
+    \frac{a_j^2 - 2a_j\sigma_j + 1}{4(1-\sigma_j^2)},
+\end{equation}
+so total merged profit is
+\begin{equation}
+    \Pi^M(j) = \Pi_{\mathrm{op}}^M(j) + m_j.
+\end{equation}
+Consumer surplus under common ownership is
+\begin{equation}\label{eq:csm}
+    C^M(j)
+    =
+    \frac{1}{2}
+    \left[
+        \bigl(q_I^M(j)\bigr)^2
+        + \bigl(q_E^M(j)\bigr)^2
+        + 2\sigma_j q_I^M(j)q_E^M(j)
+    \right].
+\end{equation}
+
+Define the private merger surplus for project \(j\) as
+\begin{equation}\label{eq:Deltaj}
+    \Delta_j \equiv \Pi^M(j) - \pi_I^D(j) - \pi_E^D(j).
+\end{equation}
+
+The two project types differ in their stand-alone and acquisition properties.
+Throughout, we assume that type \(I\) is more attractive under independent ownership, whereas type \(B\) generates a larger private gain from acquisition.
+
+\begin{assumption}\label{ass:types}
+The product-market primitives satisfy
+\begin{equation}
+    \pi_E^D(I) > \pi_E^D(B)
+    \qquad \text{and} \qquad
+    \Delta_B > \Delta_I > 0.
+\end{equation}
+\end{assumption}
+
+Assumption \ref{ass:types} captures the intended distinction between the two project types.
+A sufficient primitive configuration is that type \(I\) has a higher stand-alone demand shifter, whereas type \(B\) features a larger synergy term \(m_j\) and/or higher substitutability \(\sigma_j\), making it more valuable under common ownership.
+In that sense, the model's notion of entrepreneurial direction is the direction of project orientation between stand-alone competition and buyout exit.
+
+\subsection{Project choice, effort, and entry}
+
+After entering, the entrepreneur chooses a project type \(j \in \{I,B\}\) and an effort level \(x \in [0,1]\).
+Effort is interpreted as the probability of technical and commercial success.
+Its cost is
+\begin{equation}
+    c(x) = \frac{x^2}{2}.
+\end{equation}
+
+If the project succeeds, the entrepreneur obtains a project-specific continuation payoff that depends on whether a merger is attempted and approved.
+Let \(R_j(q)\) denote the entrepreneur's expected continuation payoff conditional on success and project choice \(j\).
+Given \(R_j(q)\), the entrepreneur solves
+\begin{equation}
+    \max_{x \in [0,1]} \; xR_j(q) - \frac{x^2}{2}.
+\end{equation}
+
+Hence, before success is realized, the entrepreneur's expected payoff from entering with project \(j\) and fixed cost \(f_m\) is
+\begin{equation}
+    U_j(f_m;s,q)
+    =
+    s - f_m
+    + \max_{x \in [0,1]}
+      \left\{
+        xR_j(q) - \frac{x^2}{2}
+      \right\}.
+\end{equation}
+
+The entrepreneur chooses the project type that maximizes \(U_j(f_m;s,q)\), and then decides whether to enter.
+Thus entry occurs if and only if
+\begin{equation}
+    \max_{j \in \{I,B\}} U_j(f_m;s,q) \ge 0.
+\end{equation}
+
+We restrict attention to parameter values such that the optimal effort choice is interior in the main text.
+Under this restriction, the entrepreneur's effort and entry decisions admit closed-form solutions characterized in the next section.
+
+\subsection{Acquisition bargaining and merger review}
+
+If a type-\(j\) project succeeds, the incumbent and the entrant may attempt a merger.
+Filing and implementing the transaction requires a fixed cost \(k>0\), interpreted as the legal, administrative, and organizational cost of merger review and consummation.
+
+The sequence is as follows.
+After success is realized, the incumbent and the entrant observe project type \(j\) and bargain over the merger.
+If they attempt a merger, approval occurs with probability \(q\); if approval is denied, the firms remain independent and compete in the product market.
+
+We assume Nash bargaining over the \emph{expected} merger surplus, with the entrepreneur receiving bargaining weight \(\beta \in (0,1)\).
+The no-merger outside options are \(\pi_I^D(j)\) and \(\pi_E^D(j)\).
+If the firms attempt a merger, the expected joint payoff net of filing cost is
+\begin{equation}
+    q\Pi^M(j) + (1-q)\bigl(\pi_I^D(j)+\pi_E^D(j)\bigr) - k,
+\end{equation}
+whereas the outside option from not filing is
+\begin{equation}
+    \pi_I^D(j)+\pi_E^D(j).
+\end{equation}
+Hence the incremental expected gain from attempting the merger is
+\begin{equation}
+    q\Delta_j - k.
+\end{equation}
+
+The firms attempt a merger if and only if
+\begin{equation}\label{eq:attemptcondition}
+    q\Delta_j \ge k.
+\end{equation}
+Under Nash bargaining, the entrepreneur's expected continuation payoff conditional on success is therefore
+\begin{equation}\label{eq:Rj}
+    R_j(q)
+    =
+    \pi_E^D(j)
+    +
+    \beta \bigl[q\Delta_j-k\bigr]_+,
+\end{equation}
+where \([z]_+ \equiv \max\{z,0\}\).
+
+Equation \eqref{eq:Rj} is central.
+A higher approval probability \(q\) raises the attractiveness of project types with large merger surplus.
+As a result, merger policy affects not only the quantity of entry, but also the direction of entrepreneurial innovation.
+
+\subsection{Policy-relevant welfare ingredients}
+
+The baseline policy instrument is the local entry subsidy \(s\). The government takes the merger approval probability \(q\) as given and chooses \(s\) before entry takes place.
+
+For policy analysis, social value is built from consumer surplus, profit components, and non-pecuniary spillovers under either independent ownership or approved acquisition. Section \ref{sec:subsidy} first aggregates these primitives into a benchmark social value that depends only on product-market primitives and merger-attempt behavior. Section \ref{sec:decentralized} then adds local and national incidence weights on top of that benchmark. The crucial point is that merger attempt is endogenous: the same condition \eqref{eq:attemptcondition} that governs private continuation values must also govern welfare accounting. If \(q\Delta_j<k\), no merger is attempted and successful entry yields the independent-ownership value. If \(q\Delta_j \ge k\), a merger is attempted, approval occurs with probability \(q\), and the resource cost of attempt is incurred regardless of approval.
+
+The next sections use this behaviorally consistent accounting to derive the primitive benchmark subsidy, then compare planner-specific local and national incidence extensions around that benchmark.

@@ -1,0 +1,241 @@
+\section{Appendix on incidence ingredients for Sections \ref{sec:subsidy} and \ref{sec:decentralized}}\label{app:subsidy}
+
+\subsection{Mapping from product-market primitives to local welfare}
+
+This appendix collects several useful decompositions for the local incidence block used in Section \ref{sec:decentralized}, building on the primitive benchmark introduced in Section \ref{sec:subsidy}.
+
+Recall that local value under independent ownership is
+\begin{equation}
+    B_j^{L,D}
+    =
+    C^D(j)
+    + \lambda_I^L \pi_I^D(j)
+    + \lambda_E^L \pi_E^D(j)
+    + \eta_j^D,
+\end{equation}
+whereas local value under approved acquisition is
+\begin{equation}
+    B_j^{L,A}
+    =
+    C^M(j)
+    + \lambda_M^L \Pi^M(j)
+    + \eta_j^A.
+\end{equation}
+Hence the local effect of acquisition relative to independent ownership is
+\begin{equation}\label{eq:localdifference}
+    B_j^{L,A}-B_j^{L,D}
+    =
+    \bigl(C^M(j)-C^D(j)\bigr)
+    +
+    \bigl(\lambda_M^L \Pi^M(j)-\lambda_I^L \pi_I^D(j)-\lambda_E^L \pi_E^D(j)\bigr)
+    +
+    \bigl(\eta_j^A-\eta_j^D\bigr).
+\end{equation}
+Equation \eqref{eq:localdifference} makes clear that approved acquisition can reduce local value even if it raises private surplus.
+A sufficient condition for \(B_j^{L,A}<B_j^{L,D}\) is that the local loss in consumer surplus and spillovers dominates the locally retained component of merged-firm profits.
+
+\subsection{A decomposition with locally retained buyout proceeds}\label{app:localbuyoutproceeds}
+
+The main text emphasizes that local governments may value successful buyout-oriented entrepreneurship partly because some gains from exit are retained within the locality.
+This appendix makes that interpretation explicit.
+
+Suppose that, under approved acquisition, local value can be decomposed as
+\begin{equation}\label{eq:BLAtransfer}
+    B_j^{L,A}
+    =
+    C^M(j)
+    + \lambda_M^L \Pi^M(j)
+    + \mu_j^L T_j
+    + \eta_j^A,
+\end{equation}
+where \(T_j \ge 0\) denotes the buyout payment associated with a successful type-\(j\) acquisition and
+\(\mu_j^L \in [0,1]\) is the fraction of that payment that is retained locally.
+For example, \(\mu_j^L\) may reflect the local residence of founders, employees with equity claims, or locally taxed capital gains.
+
+Under independent ownership, local value remains
+\begin{equation}\label{eq:BLDtransfer}
+    B_j^{L,D}
+    =
+    C^D(j)
+    + \lambda_I^L \pi_I^D(j)
+    + \lambda_E^L \pi_E^D(j)
+    + \eta_j^D.
+\end{equation}
+
+By contrast, from the national perspective the buyout payment \(T_j\) is a transfer rather than a net surplus component.
+A corresponding national decomposition is therefore
+\begin{equation}\label{eq:BNAtransfer}
+    B_j^{N,A}
+    =
+    C^M(j)
+    + \Pi^M(j)
+    + \xi_j^A,
+\end{equation}
+with no separate \(T_j\) term.
+
+Under this interpretation, the local--national difference under approved acquisition is
+\begin{equation}\label{eq:approvedwedgewithtransfer}
+    B_j^{L,A} - B_j^{N,A}
+    =
+    (\lambda_M^L-1)\Pi^M(j)
+    + \mu_j^L T_j
+    + \eta_j^A - \xi_j^A.
+\end{equation}
+Equation \eqref{eq:approvedwedgewithtransfer} clarifies why buyout-oriented projects may be valued differently by local and national planners.
+Locally retained buyout proceeds, represented by \(\mu_j^L T_j\), can raise local value even when they do not increase national surplus.
+
+Combining \eqref{eq:BLAtransfer} and \eqref{eq:BLDtransfer}, the local effect of approved acquisition relative to independent ownership becomes
+\begin{equation}\label{eq:localdifferencewithtransfer}
+    B_j^{L,A}-B_j^{L,D}
+    =
+    \bigl(C^M(j)-C^D(j)\bigr)
+    + \bigl(\lambda_M^L\Pi^M(j)-\lambda_I^L\pi_I^D(j)-\lambda_E^L\pi_E^D(j)\bigr)
+    + \mu_j^L T_j
+    + \bigl(\eta_j^A-\eta_j^D\bigr).
+\end{equation}
+Hence approved acquisition can be locally attractive even when it reduces local consumer surplus, provided the locally retained buyout proceeds and other locally retained gains are sufficiently large.
+
+This decomposition also helps interpret the equilibrium incidence wedge in Section \ref{sec:decentralized}.
+If buyout-oriented projects have relatively large \(T_j\), then the local government may value successful acquisition more highly than the national planner, even though the underlying product-market outcome is the same.
+
+\subsection{Expected local value under endogenous merger attempt}
+
+Let
+\begin{equation}
+    a_j(q)=\mathbf{1}\{q\Delta_j \ge k\}
+\end{equation}
+be the merger-attempt indicator.
+If \(a_j(q)=0\), then successful entry necessarily yields independent ownership, so
+\begin{equation}
+    B_j^L(q)=B_j^{L,D}.
+\end{equation}
+If \(a_j(q)=1\), then the merger is attempted and successful entry yields approved acquisition with probability \(q\) and independent competition with probability \(1-q\).
+The expected local value is therefore
+\begin{equation}
+    q B_j^{L,A} + (1-q)B_j^{L,D} - \kappa^L k
+    =
+    B_j^{L,D}
+    +
+    q\bigl(B_j^{L,A}-B_j^{L,D}\bigr)
+    -
+    \kappa^L k.
+\end{equation}
+Combining the two cases gives
+\begin{equation}
+    B_j^L(q)
+    =
+    B_j^{L,D}
+    +
+    a_j(q)
+    \left[
+        q\bigl(B_j^{L,A}-B_j^{L,D}\bigr)
+        -
+        \kappa^L k
+    \right].
+\end{equation}
+
+\subsection{Comparative statics of local value}
+
+On any interval where \(q<\bar q_j \equiv k/\Delta_j\), the merger is not attempted, so
+\begin{equation}
+    \frac{d B_j^L(q)}{dq}=0.
+\end{equation}
+On any interval where \(q>\bar q_j\), the merger is attempted, so
+\begin{equation}
+    \frac{d B_j^L(q)}{dq}
+    =
+    B_j^{L,A}-B_j^{L,D}.
+\end{equation}
+Hence if approved acquisition lowers local value relative to independent ownership, then \(B_j^L(q)\) is weakly decreasing in \(q\) once merger attempt becomes privately viable.
+
+\subsection{A sufficient condition for subsidy withdrawal after project switching}
+
+Suppose the buyout-oriented project becomes privately optimal at \(q=\hat q\).
+Because the local planner solves the same quadratic subsidy problem with \(B_B^{PM}(q)\) replaced by \(B_B^L(q)\), the local subsidy falls to zero immediately to the right of \(\hat q\) if
+\begin{equation}
+    B_B^L(\hat q)
+    <
+    \frac{\tau+2}{2}R_B(\hat q).
+\end{equation}
+Using the definition of \(B_B^L(\hat q)\), this condition can be written as
+\begin{equation}
+    B_B^{L,D}
+    +
+    \hat q\bigl(B_B^{L,A}-B_B^{L,D}\bigr)
+    -
+    \kappa^L k
+    <
+    \frac{\tau+2}{2}
+    \left[
+        \pi_E^D(B)+\beta(\hat q\Delta_B-k)
+    \right],
+\end{equation}
+because project \(B\) is merger-feasible at \(q=\hat q\) under Assumption \ref{ass:singlecross}.
+This decomposition is useful for interpretation:
+subsidy withdrawal is more likely when approved acquisition strongly reduces local value, when attempt costs are large, or when the entrepreneur's private buyout return is especially high.
+
+\subsection{General distribution of entry costs}
+
+This appendix extends the local-subsidy problem to a general entry-cost distribution.
+
+Let fixed costs be drawn from a continuously differentiable CDF \(G\) with density \(g\).
+For a given project type \(j\), the entry cutoff remains
+\begin{equation}
+    c_j(s,q)=s+\frac{R_j(q)^2}{2}.
+\end{equation}
+Aggregate local welfare is
+\begin{equation}\label{eq:WgeneralGlocal}
+    W_{j,G}^L(s,q)
+    =
+    \int_0^{c_j(s,q)}
+    \left[
+        R_j(q)B_j^L(q)
+        -
+        \frac{R_j(q)^2}{2}
+        -
+        f
+        -
+        \tau s
+    \right] dG(f).
+\end{equation}
+Equivalently,
+\begin{equation}
+    W_{j,G}^L(s,q)
+    =
+    \left(
+        R_j(q)B_j^L(q)
+        -
+        \frac{R_j(q)^2}{2}
+        -
+        \tau s
+    \right)
+    G(c_j)
+    -
+    \int_0^{c_j} f\,dG(f).
+\end{equation}
+Differentiating with respect to \(s\), using \(dc_j/ds=1\), yields the first-order condition
+\begin{equation}\label{eq:focgeneralGlocal}
+    g(c_j)
+    \left[
+        R_j(q)B_j^L(q)
+        -
+        R_j(q)^2
+        -
+        (\tau+1)s
+    \right]
+    -
+    \tau G(c_j)
+    =
+    0.
+\end{equation}
+The uniform-distribution expressions used in Sections \ref{sec:subsidy} and \ref{sec:decentralized} are recovered as the special case \(G(f)=f\).
+
+\subsection{Why the revised welfare block differs from the earlier reduced-form one}
+
+The earlier reduced-form formulation treated the successful-project value as a direct convex combination of independent ownership and approved acquisition.
+That shortcut obscures an important equilibrium fact:
+if \(q\Delta_j<k\), no merger is attempted, so a change in \(q\) cannot affect realized outcomes for project \(j\).
+
+The revised welfare object corrects this by inserting the attempt indicator \(a_j(q)\).
+As a result, merger permissiveness affects local subsidy design only after it changes actual behavior.
+This is the sense in which the revised welfare block is behaviorally consistent with the private equilibrium derived in Section \ref{sec:private}.

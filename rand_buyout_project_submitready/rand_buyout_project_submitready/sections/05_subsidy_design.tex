@@ -1,0 +1,187 @@
+\section{Subsidy Design under Buyout Exit}\label{sec:subsidy}
+
+This section derives the paper's main normative benchmark. The goal is to isolate the welfare consequences of buyout exit using only the product-market primitives introduced in Section \ref{sec:model} together with the endogenous merger-attempt condition. Planner-specific local and national incidence adjustments are postponed to Section \ref{sec:decentralized}.
+
+\subsection{Primitive benchmark social value}
+
+For project type $j\in\{I,B\}$, define the benchmark value under independent ownership by
+\begin{equation}\label{eq:VjD}
+    V_j^D \equiv C^D(j)+\pi_I^D(j)+\pi_E^D(j),
+\end{equation}
+and the benchmark value under approved acquisition by
+\begin{equation}\label{eq:VjA}
+    V_j^A \equiv C^M(j)+\Pi^M(j).
+\end{equation}
+Thus the benchmark welfare effect of approved acquisition relative to independent ownership is
+\begin{equation}\label{eq:Omegaj}
+    \Omega_j \equiv V_j^A-V_j^D.
+\end{equation}
+Using the definition of private merger surplus,
+\begin{equation}\label{eq:Omegajdecomp}
+    \Omega_j
+    =
+    \bigl(C^M(j)-C^D(j)\bigr)+\Delta_j.
+\end{equation}
+Equation \eqref{eq:Omegajdecomp} makes clear that the benchmark welfare effect of acquisition combines the private merger gain $\Delta_j$ with the product-market consumer-surplus effect.
+
+Let
+\begin{equation}
+    a_j(q)\equiv \mathbf{1}\{q\Delta_j\ge k\}
+\end{equation}
+denote the merger-attempt indicator. The primitive-benchmark successful-project value is then
+\begin{equation}\label{eq:BjPMq}
+    B_j^{PM}(q)
+    \equiv
+    V_j^D+a_j(q)\bigl[q\Omega_j-k\bigr].
+\end{equation}
+This object is the benchmark welfare counterpart to the private continuation value in \eqref{eq:Rj}. If no merger is attempted, successful entry yields independent competition and therefore value $V_j^D$. If a merger is attempted, approved acquisition occurs with probability $q$, rejected merger with probability $1-q$, and the resource cost $k$ is incurred regardless of approval.
+
+\subsection{Benchmark welfare conditional on project type}
+
+Fix project type $j$. As in Section \ref{sec:private}, the entrepreneur chooses effort privately, so under Assumption \ref{ass:interior},
+\begin{equation}
+    x_j^*(q)=R_j(q),
+    \qquad
+    R_j(q)=\pi_E^D(j)+\beta[q\Delta_j-k]_+.
+\end{equation}
+For an entrepreneur with entry cost $f$, expected benchmark welfare from entering with project $j$ is therefore
+\begin{equation}\label{eq:omegajPM}
+    \omega_j^{PM}(f;s,q)
+    =
+    R_j(q)B_j^{PM}(q)
+    -
+    \frac{R_j(q)^2}{2}
+    -
+    f
+    -
+    \tau s.
+\end{equation}
+The private entry cutoff remains
+\begin{equation}\label{eq:cjqPM}
+    c_j(s,q)=s+\frac{R_j(q)^2}{2}.
+\end{equation}
+Hence benchmark welfare conditional on project $j$ is
+\begin{equation}\label{eq:WjPM}
+    W_j^{PM}(s,q)
+    =
+    \int_0^{c_j(s,q)}
+    \left[
+        R_j(q)B_j^{PM}(q)-\frac{R_j(q)^2}{2}-f-\tau s
+    \right]df.
+\end{equation}
+
+\begin{proposition}\label{prop:pmbenchmarksubsidy}
+Fix a project type $j\in\{I,B\}$ and an approval probability $q$. Then $W_j^{PM}(s,q)$ is strictly concave in $s$, and the unique optimal benchmark subsidy is
+\begin{equation}\label{eq:sjPMstar}
+    s_j^{PM*}(q)
+    =
+    \max\left\{
+        0,\;
+        \frac{
+            R_j(q)B_j^{PM}(q)-\frac{\tau+2}{2}R_j(q)^2
+        }{2\tau+1}
+    \right\}.
+\end{equation}
+Equivalently,
+\begin{equation}
+    s_j^{PM*}(q)
+    =
+    \max\left\{
+        0,\;
+        \frac{
+            R_j(q)\left[B_j^{PM}(q)-\frac{\tau+2}{2}R_j(q)\right]
+        }{2\tau+1}
+    \right\}.
+\end{equation}
+\end{proposition}
+
+Proof is reported in Appendix \ref{app:decentralized}.
+
+Proposition \ref{prop:pmbenchmarksubsidy} is the benchmark counterpart to the planner-specific subsidy formulas studied later. Its key feature is that the relevant welfare block is determined entirely by the product-market primitives together with the endogenous merger-attempt condition.
+
+\subsection{Comparative statics under the primitive benchmark}
+
+The first implication is that merger permissiveness matters only once a merger is privately attempted. If $q<\bar q_j\equiv k/\Delta_j$, then $a_j(q)=0$, so
+\begin{equation}
+    R_j(q)=\pi_E^D(j),
+    \qquad
+    B_j^{PM}(q)=V_j^D,
+\end{equation}
+and therefore the benchmark subsidy is locally constant in $q$.
+
+\begin{proposition}\label{prop:pmcomparative}
+Fix a project type $j\in\{I,B\}$.
+\begin{enumerate}
+    \item If $q<\bar q_j\equiv k/\Delta_j$, then $s_j^{PM*}(q)$ is constant in $q$.
+
+    \item Consider an interval on which $q>\bar q_j$ and the optimal subsidy is interior. Then
+    \begin{equation}\label{eq:dspmdq}
+        \frac{d s_j^{PM*}(q)}{dq}
+        =
+        \frac{
+            \beta\Delta_j\bigl[B_j^{PM}(q)-(\tau+2)R_j(q)\bigr]
+            +
+            R_j(q)\Omega_j
+        }{2\tau+1}.
+    \end{equation}
+
+    \item In particular, if
+    \begin{equation}\label{eq:pmnegativecase}
+        \Omega_j\le 0
+        \qquad\text{and}\qquad
+        B_j^{PM}(q)\le (\tau+2)R_j(q),
+    \end{equation}
+    then
+    \begin{equation}
+        \frac{d s_j^{PM*}(q)}{dq}\le 0.
+    \end{equation}
+\end{enumerate}
+\end{proposition}
+
+Proof is reported in Appendix \ref{app:decentralized}.
+
+Proposition \ref{prop:pmcomparative} isolates the model-driven comparative statics in a transparent way. The relevant objects are the private merger surplus $\Delta_j$, the benchmark social merger gain $\Omega_j$, and the private continuation value $R_j(q)$. No planner-specific incidence parameters appear in the theorem.
+
+\subsection{Uniform subsidy under private project choice}
+
+Return now to the actual equilibrium in which project choice is private and governed by Proposition \ref{prop:projectchoice}. Since the uniform subsidy does not affect project choice, the planner chooses $s$ taking $j^*(q)$ as given. Thus equilibrium benchmark welfare is
+\begin{equation}
+    W^{PM}(s,q)=W_{j^*(q)}^{PM}(s,q),
+\end{equation}
+and the optimal uniform benchmark subsidy is
+\begin{equation}\label{eq:sPMuniform}
+    s^{PM*}(q)=s_{j^*(q)}^{PM*}(q).
+\end{equation}
+
+\begin{proposition}\label{prop:pmuniformsubsidy}
+Suppose Assumptions \ref{ass:types}--\ref{ass:singlecross} hold. Then the optimal uniform benchmark subsidy is
+\begin{equation}
+    s^{PM*}(q)
+    =
+    \begin{cases}
+        s_I^{PM*}(q), & q<\hat q,\\
+        \{s_I^{PM*}(\hat q),\, s_B^{PM*}(\hat q)\}, & q=\hat q,\\
+        s_B^{PM*}(q), & q>\hat q.
+    \end{cases}
+\end{equation}
+Moreover, if
+\begin{equation}\label{eq:pmdropzero}
+    B_B^{PM}(\hat q)<\frac{\tau+2}{2}R_B(\hat q),
+\end{equation}
+then there exists $\varepsilon>0$ such that
+\begin{equation}
+    s^{PM*}(q)=0
+    \qquad
+    \text{for all } q\in(\hat q,\hat q+\varepsilon).
+\end{equation}
+\end{proposition}
+
+Proof is reported in Appendix \ref{app:decentralized}.
+
+Proposition \ref{prop:pmuniformsubsidy} gives the paper's benchmark normative result. Merger permissiveness can redirect private project choice toward type $B$, and if the buyout-oriented project has weak benchmark social value relative to its private continuation value, the optimal subsidy falls and may vanish immediately after the project switch.
+
+\subsection{Discussion}
+
+The benchmark results in this section are driven by two primitive objects. The first is $\Delta_j$, which governs private merger feasibility and the private continuation value of entrepreneurship. The second is $\Omega_j=\Delta_j+\bigl(C^M(j)-C^D(j)\bigr)$, which governs the benchmark social gain from approved acquisition. This separation makes clear which comparative statics are model-driven before any planner-specific incidence assumptions are imposed.
+
+Section \ref{sec:decentralized} builds on this benchmark by reintroducing local retention, planner-specific spillovers, and other incidence adjustments. Those planner-specific results therefore modify the benchmark derived here rather than replacing it.
